@@ -1,4 +1,6 @@
 'use strict';
+
+
 /*
 Complete the `createObservable()` function as follows:
 
@@ -16,9 +18,13 @@ function createObservable() {
   return {
     subscribe: function (subscriber) {
       // TODO complete this function
+      return subscribers.push(subscriber);
     },
     notify: function (message) {
       // TODO complete this function
+      subscribers.forEach((subscriber) => {
+        return subscriber(message);
+      });
     },
   };
 }
