@@ -1741,3 +1741,13 @@ ex5-wallet/index.js
 2021-07-19 11:46:58 info: --------------------------------------
 2021-07-19 11:47:01 info: All unit tests passed.
 2021-07-19 11:47:03 info: All steps were completed successfully
+2021-07-20 10:55:03 info: ------------------------------------------
+2021-07-20 10:55:03 info: >>> Running Unit Test `ex4-observable` <<<
+2021-07-20 10:55:03 info: ------------------------------------------
+2021-07-20 10:55:06 info: All unit tests passed.
+2021-07-20 10:55:08 info: All steps were completed successfully
+2021-07-20 10:57:49 info: ------------------------------------------
+2021-07-20 10:57:49 info: >>> Running Unit Test `ex4-observable` <<<
+2021-07-20 10:57:49 info: ------------------------------------------
+2021-07-20 10:57:52 info: All unit tests passed.
+2021-07-20 10:57:54 info: All steps were completed successfully
