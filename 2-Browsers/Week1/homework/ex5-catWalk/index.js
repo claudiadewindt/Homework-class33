@@ -19,8 +19,42 @@
 
    https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif
 -----------------------------------------------------------------------------*/
+const img = document.querySelector('img');
+const originalImgSrc = img.src;
+const dancingCat =
+  'https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif?itemid=10561424';
+
+function setCatPositionToStart() {
+  img.style.left = '0px';
+}
+setCatPositionToStart();
+
 function catWalk() {
-  // TODO complete this function
+  const currentPosition = parseFloat(img.style.left);
+  img.style.left = (currentPosition + 10).toString().concat('px');
+
+  const middlePosition = window.innerWidth / 2;
+
+  if (
+    currentPosition >= middlePosition - 10 &&
+    currentPosition <= middlePosition + 10
+  ) {
+    clearInterval(interval);
+    img.src = dancingCat;
+    setTimeout(() => {
+      img.src = originalImgSrc;
+      img.style.left = (currentPosition + 20).toString().concat('px');
+      interval = setInterval(catWalk, 50);
+    }, 5000);
+  }
+
+  if (currentPosition > window.innerWidth) {
+    setCatPositionToStart();
+  }
 }
 
-// TODO execute `catWalk` when the browser has completed loading the page
+let interval = setInterval(catWalk, 50);
+
+window.addEventListener('load', () => {
+  interval = setInterval(catWalk, 50);
+});

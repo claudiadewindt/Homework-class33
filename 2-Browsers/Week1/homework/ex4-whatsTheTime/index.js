@@ -5,8 +5,16 @@
   second). Use `setInterval()` to make sure the time stays current.
 2. Have the function execute when it's loading in the browser.
 ------------------------------------------------------------------------------*/
+const span = document.createElement('p');
+document.body.appendChild(span);
+span.style.textAlign = 'center';
+span.style.padding = '20px';
+span.style.fontSize = '20px';
+
 function addCurrentTime() {
-  // TODO complete this function
+  span.textContent = new Date().toLocaleTimeString();
 }
 
+setInterval(addCurrentTime, 1000);
+window.addEventListener('load', addCurrentTime);
 // TODO execute `addCurrentTime` when the browser has completed loading the page

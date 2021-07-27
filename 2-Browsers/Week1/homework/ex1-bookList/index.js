@@ -40,7 +40,42 @@ const myBooks = [
 ];
 
 function createBookList(books) {
-  // TODO your code goes in here, return the ul element
+  const booklists = document.createElement('ul');
+  booklists.style.display = 'flex';
+  booklists.style.listStyle = 'none';
+  booklists.style.justifyContent = 'space-around';
+  for (let i = 0; i < books.length; i++) {
+    // creating the p element
+    const bookProperties = document.createElement('p');
+    // insert the text content
+    bookProperties.textContent = `${books[i].title} by ${books[i].author}`;
+    // creat the li element
+    const bookListItems = document.createElement('li');
+    // show the content up
+    bookListItems.appendChild(bookProperties);
+    // creating the img element
+    const img = document.createElement('img');
+    // set the src attribute for the imgs
+    img.src = `book${i + 1}.jpg`;
+    img.alt = `books`;
+    // append the content
+    bookListItems.appendChild(img);
+    // changing the color based on the book is read or not
+    if (books[i].alreadyRead) {
+      bookListItems.style.backgroundColor = 'green';
+    } else {
+      bookListItems.style.backgroundColor = 'red';
+    }
+    booklists.appendChild(bookListItems);
+    //styles
+    bookListItems.style.padding = '20px';
+    bookListItems.style.width = 'auto';
+    bookListItems.style.height = 'auto';
+    img.style.width = '300px';
+    img.style.height = '300px';
+    bookProperties.style.textAlign = 'center';
+  }
+  return booklists;
 }
 
 const ulElement = createBookList(myBooks);

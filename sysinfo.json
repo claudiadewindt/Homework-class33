@@ -1,0 +1,80 @@
+{
+  "node": "v14.17.1",
+  "system": {
+    "manufacturer": "Dell Inc.",
+    "model": "OptiPlex 390"
+  },
+  "cpu": {
+    "manufacturer": "Intel®",
+    "brand": "Core™ i5-2400",
+    "speed": 3.1
+  },
+  "memory": "16 GB",
+  "osInfo": {
+    "platform": "win32",
+    "distro": "Microsoft Windows 10 Home",
+    "release": "10.0.19042"
+  },
+  "vscodeInfo": {
+    "version": "1.58.2",
+    "extensions": [
+      "CoenraadS.bracket-pair-colorizer-2",
+      "Dart-Code.dart-code",
+      "dbaeumer.vscode-eslint",
+      "ecmel.vscode-html-css",
+      "esbenp.prettier-vscode",
+      "formulahendry.auto-close-tag",
+      "formulahendry.code-runner",
+      "formulahendry.terminal",
+      "hdg.live-html-previewer",
+      "ionutvmi.path-autocomplete",
+      "kiteco.kite",
+      "leizongmin.node-module-intellisense",
+      "ms-vscode-remote.remote-ssh-edit",
+      "ms-vscode.js-debug-nightly",
+      "ms-vscode.powershell",
+      "ms-vscode.vs-keybindings",
+      "ms-vscode.vscode-typescript-next",
+      "msjsdiag.debugger-for-chrome",
+      "sburg.vscode-javascript-booster",
+      "streetsidesoftware.code-spell-checker",
+      "svipas.code-autocomplete",
+      "techer.open-in-browser",
+      "tht13.html-preview-vscode",
+      "WakaTime.vscode-wakatime",
+      "WallabyJs.quokka-vscode",
+      "whtouche.vscode-js-console-utils",
+      "xabikos.JavaScriptSnippets"
+    ],
+    "userSettings": {
+      "editor.detectIndentation": false,
+      "editor.formatOnSave": true,
+      "editor.minimap.enabled": false,
+      "editor.renderIndentGuides": true,
+      "editor.tabSize": 2,
+      "editor.codeActionsOnSave": {
+        "source.fixAll": true
+      },
+      "eslint.autoFixOnSave": true,
+      "files.autoSave": "onFocusChange",
+      "prettier.singleQuote": true,
+      "prettier.trailingComma": "all",
+      "terminal.integrated.defaultProfile.windows": "Git Bash",
+      "tabnine.experimentalAutoImports": true,
+      "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+      },
+      "cSpell.userWords": [
+        "Ayden",
+        "leeftijd",
+        "naam",
+        "peanutbutter",
+        "pereira",
+        "preconnect",
+        "weeronline"
+      ],
+      "kite.showWelcomeNotificationOnStartup": false,
+      "security.workspace.trust.untrustedFiles": "open"
+    }
+  }
+}
