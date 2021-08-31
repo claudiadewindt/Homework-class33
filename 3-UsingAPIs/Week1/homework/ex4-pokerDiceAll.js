@@ -24,14 +24,22 @@ exercise file.
 const rollDice = require('../../helpers/pokerDiceRoller');
 
 function rollTheDices() {
-  // TODO Refactor this function
   const dices = [1, 2, 3, 4, 5];
-  return rollDice(1);
+  return Promise.all([
+    rollDice(dices[0]),
+    rollDice(dices[1]),
+    rollDice(dices[2]),
+    rollDice(dices[3]),
+    rollDice(dices[4]),
+  ]);
 }
 
 rollTheDices()
   .then((results) => console.log('Resolved!', results))
   .catch((error) => console.log('Rejected!', error.message));
+
+/* The problem still occurs because of the if statement in line 71. 
+"If the dice rolls of the table we reject the promise (but that doesn't stop the dice from completing its course)." */
 
 // ! Do not change or remove the code below
 module.exports = rollTheDices;
