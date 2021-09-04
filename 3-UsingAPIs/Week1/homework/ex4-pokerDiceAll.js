@@ -25,21 +25,17 @@ const rollDice = require('../../helpers/pokerDiceRoller');
 
 function rollTheDices() {
   const dices = [1, 2, 3, 4, 5];
-  return Promise.all([
-    rollDice(dices[0]),
-    rollDice(dices[1]),
-    rollDice(dices[2]),
-    rollDice(dices[3]),
-    rollDice(dices[4]),
-  ]);
+  const totalRollDices = [];
+
+  dices.forEach((dice) => totalRollDices.push(rollDice(dice)));
+  return Promise.all(totalRollDices);
 }
 
 rollTheDices()
   .then((results) => console.log('Resolved!', results))
   .catch((error) => console.log('Rejected!', error.message));
 
-/* The problem still occurs because of the if statement in line 71. 
-"If the dice rolls of the table we reject the promise (but that doesn't stop the dice from completing its course)." */
+/* The problem still occurs because of the if statement that will keep being execute while (roll < randomRollsToDo) */
 
 // ! Do not change or remove the code below
 module.exports = rollTheDices;

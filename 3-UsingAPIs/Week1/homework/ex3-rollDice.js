@@ -10,64 +10,46 @@
 ------------------------------------------------------------------------------*/
 
 // TODO Remove callback and return a promise
-function rollDice() {
-  return new Promise((resolve, reject) => {
-    // Compute a random number of rolls (3-10) that the dice MUST complete
-    const randomRollsToDo = Math.floor(Math.random() * 8) + 3;
-    console.log(`Dice scheduled for ${randomRollsToDo} rolls...`);
+function rollDice(callback) {
+  // Compute a random number of rolls (3-10) that the dice MUST complete
+  const randomRollsToDo = Math.floor(Math.random() * 8) + 3;
+  console.log(`Dice scheduled for ${randomRollsToDo} rolls...`);
 
-    const rollOnce = (roll) => {
-      // Compute a random dice value for the current roll
-      const value = Math.floor(Math.random() * 6) + 1;
-      console.log(`Dice value is now: ${value}`);
+  const rollOnce = (roll) => {
+    // Compute a random dice value for the current roll
+    const value = Math.floor(Math.random() * 6) + 1;
+    console.log(`Dice value is now: ${value}`);
 
-      // Use callback to notify that the dice rolled off the table after 6 rolls
-      if (roll > 6) {
-        // TODO replace "error" callback
-        reject(new Error('Oops... Dice rolled off the table.'));
-        return;
-      }
+    // Use callback to notify that the dice rolled off the table after 6 rolls
+    if (roll > 6) {
+      // TODO replace "error" callback
+      callback(new Error('Oops... Dice rolled off the table.'));
+    }
 
-      // Use callback to communicate the final dice value once finished rolling
-      if (roll === randomRollsToDo) {
-        // TODO replace "success" callback
-        resolve(value);
-        return;
-      }
+    // Use callback to communicate the final dice value once finished rolling
+    if (roll === randomRollsToDo) {
+      // TODO replace "success" callback
+      callback(null, value);
+    }
 
-      // Schedule the next roll todo until no more rolls to do
-      if (roll < randomRollsToDo) {
-        setTimeout(() => rollOnce(roll + 1), 500);
-      }
-    };
+    // Schedule the next roll todo until no more rolls to do
+    if (roll < randomRollsToDo) {
+      setTimeout(() => rollOnce(roll + 1), 500);
+    }
+  };
 
-    // Start the initial roll
-    rollOnce(1);
-  });
+  // Start the initial roll
+  rollOnce(1);
 }
 
 // TODO Refactor to use promise
-rollDice()
-  .then((value) => {
-    console.log(`Success! Dice settled on ${value}.`);
-  })
-  .catch((error) => {
+rollDice((error, value) => {
+  if (error !== null) {
     console.log(error.message);
-  });
-
-function wasteTime() {
-  let count = 0;
-  const timer = setInterval(() => {
-    count += 1;
-    console.log('count =', count);
-    if (count > 100) {
-      clearInterval(timer);
-    }
-  }, 0);
-}
-wasteTime();
-
-/* After using the Promise the problem doesn't occurs because the return statement in the reject and resolve functions*/
+  } else {
+    console.log(`Success! Dice settled on ${value}.`);
+  }
+});
 
 // ! Do not change or remove the code below
 module.exports = rollDice;
